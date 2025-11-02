@@ -1,0 +1,247 @@
+Unnamed: 0,Disease,workout
+0,Fungal infection,Kapalbhati Pranayama (promotes detox & immunity)
+1,Fungal infection,Anulom Vilom (balances respiratory & nervous system)
+2,Fungal infection,Surya Namaskar - gentle 3 rounds (improves circulation)
+3,Fungal infection,Ardha Matsyendrasana (seated spinal twist - supports detox)
+4,Fungal infection,Cat-Cow (Marjariasana) for stimulating circulation
+5,Fungal infection,Meditation/Stress-reduction practice (reduces flare-ups)
+6,Allergy,Anulom Vilom (alternate nostril breathing - reduces inflammation)
+7,Allergy,Bhramari Pranayama (calms airways and nervous system)
+8,Allergy,Bhujangasana (Cobra Pose - chest opening for breathing)
+9,Allergy,"Setu Bandhasana (Bridge - expands chest, eases congestion)"
+10,Allergy,Gentle neck and shoulder mobility (reduce trigger tension)
+11,Allergy,Guided relaxation (reduces histamine-triggering stress)
+12,GERD,Vajrasana (sitting post-meal to aid digestion)
+13,GERD,Pawanmuktasana (wind-relieving pose for bloating)
+14,GERD,Ardha Matsyendrasana (gentle twist to support digestion)
+15,GERD,Pranayama: slow Anulom Vilom (calm vagal tone)
+16,GERD,"Supported bridge (Setu Bandha) - gentle core support, avoid strain"
+17,GERD,Relaxation with diaphragmatic breathing (reduce reflux episodes)
+18,Chronic cholestasis,Ardha Matsyendrasana (gentle twists to stimulate liver)
+19,Chronic cholestasis,Dhanurasana (Bow Pose - stimulates abdominal organs gently)
+20,Chronic cholestasis,Paschimottanasana (seated forward bend - aids detox)
+21,Chronic cholestasis,"Surya Namaskar - slow, 3–5 rounds (boosts metabolism)"
+22,Chronic cholestasis,Diaphragmatic breathing / Pranayama for oxygenation
+23,Chronic cholestasis,Guided meditation for stress reduction and hepatic support
+24,Drug Reaction,Restorative yoga (supported Supta Baddha Konasana) for healing
+25,Drug Reaction,Yoga Nidra (deep relaxation to support recovery)
+26,Drug Reaction,Gentle mobility: Cat-Cow and pelvic tilts (reduce stiffness)
+27,Drug Reaction,Pranayama: slow Anulom Vilom (improves oxygenation)
+28,Drug Reaction,Shavasana with body-scan relaxation (reduces systemic stress)
+29,Drug Reaction,Light joint mobility & stretching (as tolerated)
+30,Peptic ulcer disease,Vajrasana (promotes post-meal digestion)
+31,Peptic ulcer disease,"Pranayama: Anulom Vilom (calming, reduces acid-related stress)"
+32,Peptic ulcer disease,"Pawanmuktasana (gentle, relieves abdominal discomfort)"
+33,Peptic ulcer disease,Seated forward bend - mild (avoid deep compressions)
+34,Peptic ulcer disease,Guided relaxation / Shavasana (lowers stress-related acid secretion)
+35,Peptic ulcer disease,"Gentle walking (short, post-recovery, aids gut motility)"
+36,AIDS,"Restorative Surya Namaskar (very gentle, short sequences)"
+37,AIDS,Supta Baddha Konasana (restorative chest opening)
+38,AIDS,Anulom Vilom Pranayama (supports respiratory & immune function)
+39,AIDS,"Gentle resistance/functional mobility (bodyweight, low intensity)"
+40,AIDS,Yoga Nidra (supports sleep and recovery)
+41,AIDS,Meditation for mental resilience and stress reduction
+42,Diabetes,Surya Namaskar (5–6 rounds - metabolic activation)
+43,Diabetes,"Kapalbhati (short, controlled intervals - pancreatic stimulation)"
+44,Diabetes,Anulom Vilom (balances autonomic nervous system)
+45,Diabetes,Dhanurasana (Bow Pose - stimulates abdominal organs)
+46,Diabetes,Leg raises and dynamic ankle pumps (improve circulation)
+47,Diabetes,Tadasana & balancing poses (Vrikshasana) with breath awareness
+48,Gastroenteritis,Balasana (Child’s Pose) - restorative during recovery
+49,Gastroenteritis,Reclined Bound Angle Pose (Supta Baddha Konasana) to relax abdomen
+50,Gastroenteritis,Diaphragmatic breathing (slow Anulom Vilom) for calming GI tract
+51,Gastroenteritis,Gentle supine twists (avoid during acute phase; use mild versions)
+52,Gastroenteritis,Restorative Shavasana (support hydration and recovery)
+53,Gastroenteritis,"Light post-recovery walking (short, gentle)"
+54,Bronchial Asthma,Bhramari Pranayama (humming breath - soothes airways)
+55,Bronchial Asthma,Anulom Vilom (alternate nostril - improves lung efficiency)
+56,Bronchial Asthma,Kapalbhati (practiced moderately and only if advised)
+57,Bronchial Asthma,Bhujangasana (Cobra) for chest opening and lung expansion
+58,Bronchial Asthma,Ardha Matsyendrasana (spinal twist for rib mobility)
+59,Bronchial Asthma,Controlled diaphragmatic breathing exercises (pursed-lip technique)
+60,Hypertension,Bhramari Pranayama (lowers sympathetic activity)
+61,Hypertension,Anulom Vilom (calming breath to reduce BP spikes)
+62,Hypertension,Shavasana (deep relaxation to lower baseline BP)
+63,Hypertension,Gentle restorative yoga sequence (avoid forceful inversions)
+64,Hypertension,Mindfulness meditation (stress hormone reduction)
+65,Hypertension,Neck/shoulder mobility plus gentle standing poses (avoid heavy exertion)
+66,Migraine,Shavasana and Yoga Nidra (reduce cortical hyperexcitability)
+67,Migraine,Sukhasana with gentle neck stretches (avoid strain)
+68,Migraine,Bhramari Pranayama (calming for headache)
+69,Migraine,"Viparita Karani (legs-up-wall, gentle, if tolerated)"
+70,Migraine,Gentle forward fold and neck release (as tolerated)
+71,Migraine,Guided relaxation and progressive muscle relaxation
+72,Cervical spondylosis,Neck mobility exercises with slow breath (avoid jerks)
+73,Cervical spondylosis,Gentle Cobra (Bhujangasana) for upper back strength
+74,Cervical spondylosis,Chin tucks and scapular squeezes (physio-style)
+75,Cervical spondylosis,Supported bridge (Setu Bandha) for posture
+76,Cervical spondylosis,Sukhasana with spine elongation and pranayama
+77,Cervical spondylosis,Avoid heavy neck flexion/rotation; include guided relaxation
+78,Paralysis (brain hemorrhage),Passive range-of-motion assisted stretching (physiotherapy-guided)
+79,Paralysis (brain hemorrhage),Bed-based gentle yoga mobilizations (supported)
+80,Paralysis (brain hemorrhage),Breathwork: gentle Anulom Vilom to improve oxygenation
+81,Paralysis (brain hemorrhage),Isometric holds for safe muscle activation (therapist guided)
+82,Paralysis (brain hemorrhage),Seated supported postures to improve trunk control
+83,Paralysis (brain hemorrhage),Guided relaxation / Yoga Nidra for neural recovery support
+84,Jaundice,Gentle twists (Ardha Matsyendrasana) to support liver flow
+85,Jaundice,Dhanurasana (mild Bow Pose) to stimulate abdominal organs
+86,Jaundice,Paschimottanasana (seated forward bend) - gentle version
+87,Jaundice,Pranayama: slow diaphragmatic breathing
+88,Jaundice,Restorative Surya Namaskar (very mild)
+89,Jaundice,Meditation to lower stress and support hepatic recovery
+90,Malaria,Restorative postures (Supta Baddha Konasana) during fever recovery
+91,Malaria,Gentle Anulom Vilom breathing for oxygenation
+92,Malaria,Shavasana with cooling breath techniques
+93,Malaria,Light joint mobility exercises as tolerated
+94,Malaria,Progressive walking only after medical clearance
+95,Malaria,Guided relaxation to aid immune response
+96,Chicken pox,Restorative poses (avoid skin irritation from sweat/exertion)
+97,Chicken pox,Diaphragmatic breathing and short Anulom Vilom sessions
+98,Chicken pox,Gentle limb mobility to avoid stiffness
+99,Chicken pox,Shavasana with comfort supports (reduce itch-stress cycle)
+100,Chicken pox,Avoid hot yoga or heavy sweating practices
+101,Chicken pox,Meditation for sleep and stress reduction
+102,Dengue,Complete rest and guided breathing (only gentle pranayama with doctor approval)
+103,Dengue,Shavasana (restorative) to conserve energy
+104,Dengue,Light passive limb mobilization (physio-guided)
+105,Dengue,Avoid exertion during febrile phase
+106,Dengue,Progressive gentle sitting balance & breathing as recovery begins
+107,Dengue,Guided relaxation / Yoga Nidra for convalescence
+108,Typhoid,Restorative poses and diaphragmatic breathing during recovery
+109,Typhoid,Gentle supine stretches and mobility (physio guided)
+110,Typhoid,Shavasana and Yoga Nidra for convalescence
+111,Typhoid,Avoid exertion while febrile or symptomatic
+112,Typhoid,Progressive short walks after medical clearance
+113,Typhoid,Meditation to improve sleep and recovery
+114,hepatitis A,Gentle twists and diaphragmatic breathing (support liver)
+115,hepatitis A,Seated forward bend - mild (avoid strain)
+116,hepatitis A,Dhanurasana in mild form (stimulates abdomen)
+117,hepatitis A,Restorative Surya Namaskar - gentle pace
+118,hepatitis A,Pranayama: slow Anulom Vilom
+119,hepatitis A,Yoga Nidra for recovery and stress reduction
+120,Hepatitis B,Ardha Matsyendrasana (gentle twist for liver stimulation)
+121,Hepatitis B,Setu Bandha (Bridge) - gentle practice
+122,Hepatitis B,Pranayama for oxygenation and stress reduction
+123,Hepatitis B,Dhanurasana - mild variations
+124,Hepatitis B,Restorative postures and short walking as tolerated
+125,Hepatitis B,Meditation to reduce systemic stress
+126,Hepatitis C,"Surya Namaskar (very gentle, short rounds)"
+127,Hepatitis C,Ardha Matsyendrasana and mild twists
+128,Hepatitis C,Pranayama: Anulom Vilom (slow)
+129,Hepatitis C,Seated forward bends with support
+130,Hepatitis C,Restorative poses and guided relaxation
+131,Hepatitis C,Light mobility work for systemic strength
+132,Hepatitis D,Gentle restorative yoga and diaphragmatic breathing
+133,Hepatitis D,Twisting poses in mild form (Ardha Matsyendrasana)
+134,Hepatitis D,Setu Bandha (Bridge) - supported
+135,Hepatitis D,Pranayama for relaxation and oxygenation
+136,Hepatitis D,Short gentle walks after recovery
+137,Hepatitis D,Meditation and Yoga Nidra for convalescence
+138,Hepatitis E,Restorative Surya Namaskar (very mild)
+139,Hepatitis E,Seated gentle twists and forward bends
+140,Hepatitis E,"Pranayama: slow Kapalbhati if advised, otherwise Anulom Vilom"
+141,Hepatitis E,Shavasana and guided relaxation
+142,Hepatitis E,Light mobility and breathing exercises
+143,Hepatitis E,Meditation for stress reduction
+144,Alcoholic hepatitis,Restorative yoga (support energy conservation)
+145,Alcoholic hepatitis,Diaphragmatic breathing and gentle pranayama
+146,Alcoholic hepatitis,Gentle twists and seated forward bends
+147,Alcoholic hepatitis,Short walking and mobility as advised by doctor
+148,Alcoholic hepatitis,Yoga Nidra for sleep and recovery
+149,Alcoholic hepatitis,Avoid vigorous practices until medically cleared
+150,Tuberculosis,Breathing rehabilitation: Anulom Vilom and Bhramari
+151,Tuberculosis,Gentle chest opening: Bhujangasana (Cobra)
+152,Tuberculosis,Restorative poses to conserve energy
+153,Tuberculosis,Progressive walking after medical clearance
+154,Tuberculosis,Seated pranayama with short intervals
+155,Tuberculosis,Guided meditation to support immunity
+156,Common Cold,Bhramari Pranayama (clears nasal passages)
+157,Common Cold,Anulom Vilom (gentle breathing)
+158,Common Cold,Bhujangasana (mild chest opening)
+159,Common Cold,Seated forward bends to relax throat tension
+160,Common Cold,Shavasana with warm comfort supports
+161,Common Cold,Avoid strenuous practice during acute symptoms
+162,Pneumonia,Gentle diaphragmatic breathing practice (physio-guided)
+163,Pneumonia,Anulom Vilom in short intervals
+164,Pneumonia,Restorative poses and Shavasana
+165,Pneumonia,Chest opening poses (mild Bhujangasana) as tolerated
+166,Pneumonia,Progressive mobilization and walking after recovery
+167,Pneumonia,Guided relaxation to improve sleep
+168,Dimorphic hemmorhoids(piles),Pavanmuktasana (wind-relieving pose - reduces pelvic pressure)
+169,Dimorphic hemmorhoids(piles),Malasana (squat) - gentle mobility to improve bowel transit
+170,Dimorphic hemmorhoids(piles),Supta Baddha Konasana (reclined bound angle) for pelvic relaxation
+171,Dimorphic hemmorhoids(piles),Mula bandha awareness and gentle pelvic floor engagement (physio-guided)
+172,Dimorphic hemmorhoids(piles),Leg raises and core stabilization (gentle)
+173,Dimorphic hemmorhoids(piles),Relaxation and diaphragmatic breathing to reduce strain
+174,Heart attack,Gentle diaphragmatic breathing and Anulom Vilom (after clearance)
+175,Heart attack,Restorative supported poses (avoid strain)
+176,Heart attack,Light seated mobility and isometric holds (physio-guided)
+177,Heart attack,Yoga Nidra for cardiac recovery
+178,Heart attack,Short gentle walks as tolerated post-rehab
+179,Heart attack,Avoid heavy resistance or high-intensity sequences
+180,Varicose veins,Legs-up-the-wall (Viparita Karani) to reduce venous pooling
+181,Varicose veins,Ankle pumps and calf raises (physio-guided)
+182,Varicose veins,Gentle walking to improve circulation
+183,Varicose veins,Hamstring and calf stretches (seated)
+184,Varicose veins,Avoid prolonged standing; restorative postures
+185,Varicose veins,Elevated-leg relaxation with diaphragmatic breathing
+186,Hypothyroidism,"Sarvangasana (shoulder-supported, as advised) or gentle neck-friendly alternatives"
+187,Hypothyroidism,Matsyasana (Fish Pose) to stimulate thyroid
+188,Hypothyroidism,Sequence: Bhujangasana & Dhanurasana (gentle)
+189,Hypothyroidism,Pranayama: Ujjayi (gentle) and Anulom Vilom
+190,Hypothyroidism,Surya Namaskar at moderate pace
+191,Hypothyroidism,Slow strength-building mobility (physio-guided)
+192,Hyperthyroidism,"Gentle grounding poses: Tadasana, Sukhasana with slow breath"
+193,Hyperthyroidism,Avoid over-stimulating pranayamas; prefer Anulom Vilom
+194,Hyperthyroidism,Seated forward bends for calming nervous system
+195,Hyperthyroidism,Restorative supported poses and Shavasana
+196,Hyperthyroidism,Short gentle walks to maintain stamina
+197,Hyperthyroidism,Meditation to reduce sympathetic overactivity
+198,Hypoglycemia,Short gentle movement to raise blood sugar safely (light standing sequences)
+199,Hypoglycemia,Pranayama: short Anulom Vilom to stabilize autonomic tone
+200,Hypoglycemia,Seated forward folds for calmness
+201,Hypoglycemia,Light leg movements and ankle pumps
+202,Hypoglycemia,Keep quick carbohydrate handy during practice (safety)
+203,Hypoglycemia,Slow balancing poses with support (physio-guided)
+204,Osteoarthristis,Chair yoga: seated knee extension and gentle hip openers
+205,Osteoarthristis,Bridge pose (supported) for low-back and hip strength
+206,Osteoarthristis,Quadriceps and hamstring strengthening (physio-style)
+207,Osteoarthristis,Gentle range-of-motion exercises for affected joints
+208,Osteoarthristis,Surya Namaskar at slow pace (low impact)
+209,Osteoarthristis,Meditation and breathwork to manage chronic pain
+210,Arthritis,Gentle tai-like yoga flows and joint mobility
+211,Arthritis,Seated spinal twists and shoulder openers
+212,Arthritis,Isometric strengthening for joints (physio-guided)
+213,Arthritis,Restorative postures and pranayama
+214,Arthritis,Water-based gentle exercises if available
+215,Arthritis,Relaxation and mindfulness for pain modulation
+216,(vertigo) Paroymsal Positional Vertigo,"Anulom Vilom Pranayama (calming, systemic support)"
+217,(vertigo) Paroymsal Positional Vertigo,"Surya Namaskar (gentle, 3 rounds)"
+218,(vertigo) Paroymsal Positional Vertigo,Shavasana (deep relaxation)
+219,(vertigo) Paroymsal Positional Vertigo,Gentle spinal twists (mild detox support)
+220,(vertigo) Paroymsal Positional Vertigo,Diaphragmatic breathing (improves autonomic balance)
+221,(vertigo) Paroymsal Positional Vertigo,Guided meditation (stress reduction)
+222,Acne,Pranayama (Anulom Vilom) to reduce stress-related flare-ups
+223,Acne,Gentle Surya Namaskar (low intensity) to boost circulation
+224,Acne,Neck and shoulder relaxation to reduce sebum-increasing stress
+225,Acne,Restorative poses and Shavasana
+226,Acne,Dry-skin friendly movements (avoid excessive sweating)
+227,Acne,Guided relaxation for sleep improvement
+228,Urinary tract infection,Gentle pelvic floor relaxation and awareness (avoid forcible contractions)
+229,Urinary tract infection,Supta Baddha Konasana (relax pelvic region)
+230,Urinary tract infection,Diaphragmatic breathing to aid relaxation
+231,Urinary tract infection,Light mobility and short walks after recovery
+232,Urinary tract infection,Avoid overheating and excessive sweating during acute infection
+233,Urinary tract infection,Meditation to support immune response
+234,Psoriasis,Pranayama (Anulom Vilom and Bhramari) for stress reduction
+235,Psoriasis,Gentle restorative yoga (avoid skin-irritating sweat)
+236,Psoriasis,Seated forward folds and gentle twists
+237,Psoriasis,Surya Namaskar at low intensity if tolerated
+238,Psoriasis,Meditation and Yoga Nidra to reduce flare-ups
+239,Psoriasis,Avoid rigorous practices during active lesions
+240,Impetigo,"Rest, Shavasana and relaxation to support healing"
+241,Impetigo,Gentle breathing practices (Anulom Vilom)
+242,Impetigo,Avoid sweaty/abrasive practices that irritate skin
+243,Impetigo,Light limb mobility to prevent stiffness
+244,Impetigo,Supportive restorative poses (Supta Baddha Konasana)
+245,Impetigo,Guided relaxation for better sleep and recovery
