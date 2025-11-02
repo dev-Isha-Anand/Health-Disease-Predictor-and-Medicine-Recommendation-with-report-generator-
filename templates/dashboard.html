@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Health Care Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+      body {
+        background-color: #D6EEFF;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      .navbar {
+        background-color: #004080 !important;
+      }
+
+      .navbar-brand, .nav-link {
+        color: white !important;
+      }
+
+      .dashboard-container {
+        max-width: 900px;
+        margin: 60px auto;
+        background: #ffffff;
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      }
+
+      .disease-title {
+        text-align: center;
+        font-size: 30px;
+        font-weight: bold;
+        color: #003366;
+        text-transform: uppercase;
+        margin-bottom: 40px;
+      }
+
+      .button-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        justify-items: center;
+      }
+
+      .dash-btn {
+        width: 180px;
+        padding: 14px;
+        font-size: 16px;
+        font-weight: bold;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      /* Blue shades for buttons */
+      .btn-disease { background-color: #48A9E6; }
+      .btn-description { background-color: #48A9E6; }
+      .btn-precaution { background-color: #48A9E6; }
+      .btn-medicine { background-color: #48A9E6; }
+      .btn-workout { background-color: #48A9E6; }
+      .btn-diet { background-color: #48A9E6; }
+      .btn-report { background-color: #0078D7; }
+
+      .dash-btn:hover {
+        transform: scale(1.07);
+        background-color: #007ACC;
+      }
+
+      /* Report button centered below */
+      .report-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 30px;
+      }
+
+      @media (max-width: 768px) {
+        .button-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 480px) {
+        .button-grid {
+          grid-template-columns: 1fr;
+        }
+        .dash-btn {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Dashboard</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Dashboard Content -->
+    <div class="dashboard-container">
+      <div class="disease-title">
+        What you want to know?
+      </div>
+
+      <!-- Button Grid -->
+      <div class="button-grid">
+        <button class="dash-btn btn-disease" data-bs-toggle="modal" data-bs-target="#diseaseModal">Disease</button>
+        <button class="dash-btn btn-description" data-bs-toggle="modal" data-bs-target="#descriptionModal">Description</button>
+        <button class="dash-btn btn-precaution" data-bs-toggle="modal" data-bs-target="#precautionModal">Precaution</button>
+
+        <button class="dash-btn btn-medicine" data-bs-toggle="modal" data-bs-target="#medicationsModal">Medicine</button>
+        <button class="dash-btn btn-workout" data-bs-toggle="modal" data-bs-target="#workoutsModal">Workout</button>
+        <button class="dash-btn btn-diet" data-bs-toggle="modal" data-bs-target="#dietsModal">Diet</button>
+      </div>
+
+      <!-- Centered Report Button Below -->
+      <div class="report-container">
+        <a href="{{ url_for('generate_report') }}" 
+        class="btn btn-primary" 
+        style="background-color:white; border:none;">
+        <button class="dash-btn btn-disease" data-bs-toggle="modal" data-bs-target="#diseaseModal">Generate Report</button></a>
+      </div>
+    </div>
+
+    <!-- Modals (unchanged backend variables) -->
+    <div class="modal fade" id="diseaseModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header bg-dark text-white">
+            <h5 class="modal-title">Predicted Disease</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <p>{{ predicted_disease }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="descriptionModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header bg-dark text-white">
+            <h5 class="modal-title">Description</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <p>{{ dis_des }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="precautionModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header bg-dark text-white">
+            <h5 class="modal-title">Precaution</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <ul>
+              {% for i in my_precautions %}
+                <li>{{ i }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="medicationsModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header bg-dark text-white">
+            <h5 class="modal-title">Medications</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <ul>
+              {% for i in medications %}
+                <li>{{ i }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="workoutsModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header bg-dark text-white">
+            <h5 class="modal-title">Workouts</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <ul>
+              {% for i in workout %}
+                <li>{{ i }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="dietsModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header bg-dark text-white">
+            <h5 class="modal-title">Diets</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+          <div class="modal-body">
+            <ul>
+              {% for i in my_diet %}
+                <li>{{ i }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

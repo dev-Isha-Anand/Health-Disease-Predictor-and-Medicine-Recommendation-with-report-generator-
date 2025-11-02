@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Medicine Recommendation System</title>
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      background-color: #e8f4fd;
+      margin: 0;
+      padding: 0;
+      position: relative;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 30px;
+      background-color: #4da8ff;
+      color: white;
+      font-weight: bold;
+    }
+
+    .main-container {
+      background-color: #003366; /* Dark blue rectangle box */
+      padding: 50px;
+      margin: 40px auto; /* Centered */
+      width: 50%; /* Width unchanged */
+      min-height: 500px; /* Increased height */
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      text-align: center;
+      color: white;
+    }
+
+    .main h2 {
+      margin-bottom: 150px;
+    }
+
+    .symptom-paragraphs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .symptom-para {
+      padding: 10px 15px;
+      border-radius: 8px;
+      font-weight: bold;
+      color: white;
+      display: inline-block;
+      margin: 5px;
+      background-color: #0080FE; /* Uniform hex color for all paragraphs */
+    }
+
+    .predict-btn {
+      background-color: #4da8ff;
+      border: none;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: 0.3s;
+    }
+
+    .predict-btn:hover {
+      background-color: #2e7cd1;
+      
+    }
+
+    /* Popup overlay and form */
+    .popup-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(5px); /* Blur background */
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .popup-overlay.show {
+      display: flex;
+    }
+
+    #symptomForm {
+      background-color: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      width: 400px; /* Slightly wider for more fields */
+      position: relative;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+
+    #symptomForm h3 {
+      margin-top: 0;
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: none;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      color: #333;
+    }
+
+    .form-field {
+      margin-bottom: 15px;
+    }
+
+    .form-field label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    .form-field input, .form-field select, .form-field textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    .submit-btn {
+      background-color: #4da8ff;
+      border: none;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: 0.3s;
+    }
+
+    .submit-btn:hover {
+      background-color: #2e7cd1;
+    }
+
+    /* Dashboard (results) */
+    #dashboard {
+      display: none;
+      margin-top: 30px;
+      background-color: white;
+      padding: 20px;
+      border-radius: 12px;
+      width: 60%;
+      margin-left: auto;
+      margin-right: auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    #dashboard.show {
+      display: block;
+    }
+
+    .dashboard-buttons {
+      margin-bottom: 15px;
+    }
+
+    .dashboard-buttons button {
+      background-color: #4da8ff;
+      border: none;
+      color: white;
+      padding: 8px 15px;
+      margin: 5px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .dashboard-buttons button:hover {
+      background-color: #2e7cd1;
+    }
+
+    #resultContainer {
+      margin-top: 15px;
+      text-align: left;
+      padding: 15px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="menu">☰</div>
+    <div class="welcome">Welcome User</div>
+    <div class="home-icon">🏠</div>
+  </nav>
+
+  <div class="main-container">
+    <section class="main">
+      <h2>How do you feel?</h2>
+
+      <div class="symptom-paragraphs">
+        <p class="symptom-para">Headache</p>
+        <p class="symptom-para">Weakness</p>
+        <p class="symptom-para">Fever</p>
+        <p class="symptom-para">Vomiting</p>
+      </div>
+
+      <button id="predictBtn" class="predict-btn">Predict</button>
+    </section>
+  </div>
+
+  <!-- Popup overlay for form -->
+  <div id="popupOverlay" class="popup-overlay">
+    <form id="symptomForm" action="/predict" method="POST">
+      <button type="button" class="close-btn" id="closeBtn">&times;</button>
+      <h3>Provide Details</h3>
+      
+      <div class="form-field">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required />
+      </div>
+      
+      <div class="form-field">
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required />
+      </div>
+      
+      <div class="form-field">
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender" required>
+          <option value="">Select</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+      
+      <div class="form-field">
+        <label for="height">Height (cm):</label>
+        <input type="number" id="height" name="height" required />
+      </div>
+      
+      <div class="form-field">
+        <label for="weight">Weight (kg):</label>
+        <input type="number" id="weight" name="weight" required />
+      </div>
+      
+      <div class="form-field">
+        <label for="symptoms">Symptoms (separate by commas):</label>
+        <textarea id="symptoms" name="symptoms" placeholder="e.g., headache, fever" rows="3"></textarea>
+      </div>
+      
+      <div class="form-field">
+        <label for="family_history">Family History:</label>
+        <textarea id="family_history" name="family_history" rows="2"></textarea>
+      </div>
+      
+      <div class="form-field">
+        <label for="address">Address:</label>
+        <textarea id="address" name="address" rows="2"></textarea>
+      </div>
+      
+      <button type="submit" class="submit-btn">Submit</button>
+    </form>
+  </div>
+
+  <!-- Result Section -->
+  <div id="dashboard">
+    <h2 id="diseaseName">Disease: —</h2>
+
+    <div class="dashboard-buttons">
+      <button onclick="showSection('desc')">Description</button>
+      <button onclick="showSection('pre')">Precautions</button>
+      <button onclick="showSection('med')">Medicine</button>
+      <button onclick="showSection('wrk')">Workout</button>
+      <button onclick="showSection('diet')">Diet</button>
+    </div>
+
+    <div id="resultContainer"></div>
+
+    <button id="reportBtn">Generate Report</button>
+  </div>
+
+  <script>
+    const predictBtn = document.getElementById("predictBtn");
+    const popupOverlay = document.getElementById("popupOverlay");
+    const closeBtn = document.getElementById("closeBtn");
+    const symptomForm = document.getElementById("symptomForm");
+    const dashboard = document.getElementById("dashboard");
+    const resultContainer = document.getElementById("resultContainer");
+    const diseaseName = document.getElementById("diseaseName");
+
+    let resultData = {};
+
+    // Show popup on Predict click
+    predictBtn.addEventListener("click", () => {
+      popupOverlay.classList.add("show");
+    });
+
+    // Close popup on close button or outside click
+    closeBtn.addEventListener("click", () => {
+      popupOverlay.classList.remove("show");
+    });
+
+    popupOverlay.addEventListener("click", (e) => {
+      if (e.target === popupOverlay) {
+        popupOverlay.classList.remove("show");
+      }
+    });
+
+ 
+    function showSection(type) {
+      if (!resultData) return;
+      let content = "";
+
+      switch (type) {
+        case "desc":
+          content = `<strong>Description:</strong> ${resultData.description}`;
+          break;
+        case "pre":
+          content = `<strong>Precautions:</strong> ${resultData.precautions.join("<br>")}`;
+          break;
+        case "med":
+          content = `<strong>Medications:</strong> ${resultData.medications.join("<br>")}`;
+          break;
+        case "diet":
+          content = `<strong>Diets:</strong> ${resultData.diets.join("<br>")}`;
+          break;
+        case "wrk":
+          content = `<strong>Workouts:</strong> ${resultData.workouts.join("<br>")}`;
+          break;
+      }
+
+      resultContainer.innerHTML = content;
+    }
+  </script>
+</body>
+</html>

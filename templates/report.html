@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Report</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f0f0f0;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Adjusted width to fit A4 portrait (approx 595px at 96dpi) with margins */
+    .report-container {
+      width: 550px; /* Reduced to ensure it fits within A4 without overflow */
+      background: #ffffff;
+      margin: 30px auto;
+      padding: 35px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+      position: relative;
+    }
+
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .header img {
+      width: 65px;
+      height: 65px;
+    }
+
+    .header h2 {
+      color: #0078D7;
+      font-size: 22px;
+      margin: 0;
+    }
+
+    hr {
+      border: 1px solid #0078D7;
+      margin: 15px 0 25px;
+    }
+
+    .details {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      line-height: 26px;
+    }
+
+    .left, .right {
+      width: 48%;
+    }
+
+    .left p, .right p {
+      font-size: 15px;
+      margin: 6px 0;
+    }
+
+    span {
+      font-weight: bold;
+    }
+
+    .section {
+      margin-bottom: 16px;
+    }
+
+    .section p {
+      font-size: 15px;
+      line-height: 22px;
+      text-align: justify;
+      margin-bottom: 6px;
+    }
+
+    .section ol {
+      margin: 5px 0 0 25px;
+      padding: 0;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 13px;
+      margin-top: 20px;
+    }
+
+    .footer hr {
+      border: 1px solid #ccc;
+      margin: 15px 0;
+    }
+
+    .download-btn {
+      display: block;
+      margin: 25px auto 10px;
+      padding: 10px 28px;
+      background-color: #0078D7;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 15px;
+    }
+
+    .download-btn:hover {
+      background-color: #005ea6;
+    }
+  </style>
+</head>
+<body>
+  <div class="report-container" id="reportContent">
+    <div class="header">
+      <img src="https://cdn-icons-png.flaticon.com/512/2966/2966486.png" alt="icon">
+      <h2>Know your health and treat it better</h2>
+    </div>
+    <hr>
+
+    <div class="details">
+      <div class="left">
+        <p><span>Name:</span> {{ name }}</p>
+        <p><span>Height:</span> {{ height }} cm</p>
+        <p><span>Weight:</span> {{ weight }} kg</p>
+        <p><span>Body Mass Index:</span> {{ bmi }}</p>
+        <p><span>Disease:</span> {{ predicted_disease }}</p>
+      </div>
+
+      <div class="right">
+        <p><span>Age:</span> {{ age }}</p>
+        <p><span>Address:</span> {{ address }}</p>
+        <p><span>Due Date:</span> {{ due_date }}</p>
+      </div>
+    </div>
+
+    <div class="section">
+      <p><span>Description:</span> {{ dis_des }}</p>
+    </div>
+
+    <div class="section">
+      <p><span>Precautions:</span></p>
+      <ol>
+        {% for p in my_precautions %}
+        <li>{{ p }}</li>
+        {% endfor %}
+      </ol>
+    </div>
+
+    <div class="section">
+      <p><span>Medicines:</span></p>
+      <ol>
+        {% for m in medications %}
+        <li>{{ m }}</li>
+        {% endfor %}
+      </ol>
+    </div>
+
+    <div class="section">
+      <p><span>Diet:</span></p>
+      <ol>
+        {% for d in my_diet %}
+        <li>{{ d }}</li>
+        {% endfor %}
+      </ol>
+    </div>
+
+    <div class="section">
+      <p><span>Workout:</span></p>
+      <ol>
+        {% for w in workout %}
+        <li>{{ w }}</li>
+        {% endfor %}
+      </ol>
+    </div>
+
+    <div class="footer">
+      <hr>
+      <p>For any query, mail us at <b>healthpredictor@gmail.com</b></p>
+    </div>
+
+    <button type="button" class="download-btn" onclick="downloadPDF()">Download PDF</button>
+  </div>
+
+  <!-- Replaced html2pdf.js with jsPDF for extractable text -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script>
+    async function downloadPDF() {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF({
+        orientation: 'portrait',
+        unit: 'mm',
+        format: 'a4'
+      });
+
+      // Page dimensions
+      const pageWidth = doc.internal.pageSize.getWidth();
+      const pageHeight = doc.internal.pageSize.getHeight();
+      const margin = 20;
+      let yPosition = margin;
+
+      // Font settings
+      doc.setFont('helvetica', 'normal');
+      doc.setFontSize(16);
+
+      // Header: Icon and Title
+      // Note: jsPDF doesn't handle images easily without base64; for simplicity, skip icon or load it separately
+      // If you want the icon, you'd need to load it as base64 or use a different method
+      doc.setFontSize(22);
+      doc.setTextColor(0, 120, 215); // #0078D7
+      doc.text('Know your health and treat it better', pageWidth / 2, yPosition, { align: 'center' });
+      yPosition += 15;
+
+      // Horizontal line
+      doc.setLineWidth(0.5);
+      doc.setDrawColor(0, 120, 215);
+      doc.line(margin, yPosition, pageWidth - margin, yPosition);
+      yPosition += 10;
+
+      // Details section
+      doc.setFontSize(12);
+      doc.setTextColor(0, 0, 0);
+      doc.setFont('helvetica', 'bold');
+      doc.text('Name:', margin, yPosition);
+      doc.setFont('helvetica', 'normal');
+      doc.text('{{ name }}', margin + 30, yPosition);
+      doc.setFont('helvetica', 'bold');
+      doc.text('Age:', pageWidth / 2 + 10, yPosition);
+      doc.setFont('helvetica', 'normal');
+      doc.text('{{ age }}', pageWidth / 2 + 30, yPosition);
+      yPosition += 8;
+
+      doc.setFont('helvetica', 'bold');
+      doc.text('Height:', margin, yPosition);
+      doc.setFont('helvetica', 'normal');
+      doc.text('{{ height }} cm', margin + 30, yPosition);
+      doc.setFont('helvetica', 'bold');
+      doc.text('Address:', pageWidth / 2 + 10, yPosition);
+      doc.setFont('helvetica', 'normal');
+      doc.text('{{ address }}', pageWidth / 2 + 30, yPosition);
+      yPosition += 8;
+
+      doc.setFont('helvetica', 'bold');
+      doc.text('Weight:', margin, yPosition);
+      doc.setFont('helvetica', 'normal');
+      doc.text('{{ weight }} kg', margin + 30, yPosition);
+      doc.setFont('helvetica', 'bold');
+      doc.text('Due Date:', pageWidth / 2 + 10, yPosition);
+      doc.setFont('helvetica', 'normal');
+      doc.text('{{ due_date }}', pageWidth / 2 + 30, yPosition);
+      yPosition += 8;
+
+      doc.setFont('helvetica', 'bold');
+      doc.text('Body Mass Index:', margin, yPosition);
+      doc.setFont('helvetica', 'normal');
+      doc.text('{{ bmi }}', margin + 50, yPosition);
+      yPosition += 8;
+
+      doc.setFont('helvetica', 'bold');
+      doc.text('Disease:', margin, yPosition);
+      doc.setFont('helvetica', 'normal');
+      doc.text('{{ predicted_disease }}', margin + 30, yPosition);
+      yPosition += 15;
+
+      // Description
+      doc.setFont('helvetica', 'bold');
+      doc.text('Description:', margin, yPosition);
+      yPosition += 8;
+      doc.setFont('helvetica', 'normal');
+      const description = '{{ dis_des }}';
+      const descLines = doc.splitTextToSize(description, pageWidth - 2 * margin);
+      doc.text(descLines, margin, yPosition);
+      yPosition += descLines.length * 6 + 10;
+
+      // Precautions
+      doc.setFont('helvetica', 'bold');
+      doc.text('Precautions:', margin, yPosition);
+      yPosition += 8;
+      doc.setFont('helvetica', 'normal');
+      {% for p in my_precautions %}
+      doc.text('• {{ p }}', margin + 5, yPosition);
+      yPosition += 6;
+      {% endfor %}
+      yPosition += 5;
+
+      // Medicines
+      doc.setFont('helvetica', 'bold');
+      doc.text('Medicines:', margin, yPosition);
+      yPosition += 8;
+      doc.setFont('helvetica', 'normal');
+      {% for m in medications %}
+      doc.text('• {{ m }}', margin + 5, yPosition);
+      yPosition += 6;
+      {% endfor %}
+      yPosition += 5;
+
+      // Diet
+      doc.setFont('helvetica', 'bold');
+      doc.text('Diet:', margin, yPosition);
+      yPosition += 8;
+      doc.setFont('helvetica', 'normal');
+      {% for d in my_diet %}
+      doc.text('• {{ d }}', margin + 5, yPosition);
+      yPosition += 6;
+      {% endfor %}
+      yPosition += 5;
+
+      // Workout
+      doc.setFont('helvetica', 'bold');
+      doc.text('Workout:', margin, yPosition);
+      yPosition += 8;
+      doc.setFont('helvetica', 'normal');
+      {% for w in workout %}
+      doc.text('• {{ w }}', margin + 5, yPosition);
+      yPosition += 6;
+      {% endfor %}
+      yPosition += 15;
+
+      // Footer
+      doc.setLineWidth(0.5);
+      doc.setDrawColor(200, 200, 200);
+      doc.line(margin, yPosition, pageWidth - margin, yPosition);
+      yPosition += 10;
+      doc.setFontSize(10);
+      doc.text('For any query, mail us at healthpredictor@gmail.com', pageWidth / 2, yPosition, { align: 'center' });
+
+      // Save the PDF
+      doc.save('Health_Report.pdf');
+    }
+  </script>
+</body>
+</html>
